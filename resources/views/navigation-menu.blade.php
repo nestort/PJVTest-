@@ -15,8 +15,14 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('my_orders') }}" :active="request()->routeIs('my_orders')">
+                        {{ __('My Orders') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products.index')">
                         {{ __('Products') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('invoices.index') }}" :active="request()->routeIs('invoices.index')">
+                        {{ __('Invoices') }}
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -144,8 +150,14 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('my_orders') }}" :active="request()->routeIs('my_orders')">
+                {{ __('My Orders') }}
+            </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products.index')">
                 {{ __('Products') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('invoices.index') }}" :active="request()->routeIs('invoices.index')">
+                {{ __('Invoices') }}
             </x-jet-responsive-nav-link>
         </div>
 

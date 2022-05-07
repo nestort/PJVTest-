@@ -21,4 +21,7 @@ class Product extends Model
     {
         return $this->price-$this->price_without_tax();
     }
+
+
+
 }
