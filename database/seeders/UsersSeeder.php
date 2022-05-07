@@ -20,12 +20,17 @@ class UsersSeeder extends Seeder
         $adminRole = Role::create(['name' => 'administrador']);
         $usersRole = Role::create(['name' => 'usuario']);
 
-        Permission::create(['name' => 'ver:usuarios']);
-        Permission::create(['name' => 'crear:usuarios']);
-        Permission::create(['name' => 'editar:usuarios']);
-        Permission::create(['name' => 'eliminar:usuarios']);
+        Permission::create(['name' => 'ver:productos']);
+        Permission::create(['name' => 'crear:productos']);
+        Permission::create(['name' => 'editar:productos']);
+        Permission::create(['name' => 'eliminar:productos']);
 
 
+        Permission::create(['name' =>'ver:factura']);
+        Permission::create(['name'=>'crear:factura']);
+
+
+        $adminRole->givePermissionTo(Permission::all());
 
 
         $user = new User();

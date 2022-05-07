@@ -6,7 +6,8 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Invoice;
 use App\Models\Order;
-
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 class InvoicesTable extends Component
 {
     use WithPagination;
@@ -28,6 +29,8 @@ class InvoicesTable extends Component
     }
     public function generate_invoices()
     {
+        abort_if(Gate::denies('crear:factura'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $newOrders = Order::whereNull('invoice_id')->get();
         $ordersPerUser = $newOrders->groupBy('user_id');
 

@@ -13,18 +13,19 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        //abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
+        abort_if(Gate::denies('ver:productos'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $products = Product::all();
 
         return view('products.index', compact('products'));
     }
     public function create()
     {
+        abort_if(Gate::denies('crear:productos'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         return view('products.create');
     }
     public function store(Request $request)
     {
+        abort_if(Gate::denies('crear:productos'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $validated = $request->validate([
             'name' => 'required|max:255',
             'price' => 'required|numeric',
@@ -35,15 +36,17 @@ class ProductsController extends Controller
     }
     public function show(Product $product)
     {
-
+        abort_if(Gate::denies('ver:productos'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         return view('products.show', compact('product'));
     }
     public function edit(Product $product)
     {
+        abort_if(Gate::denies('editar:productos'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         return view('products.edit',compact('product'));
     }
     public function update(Request $request,Product $product)
     {
+        abort_if(Gate::denies('editar:productos'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $validated = $request->validate([
             'name' => 'required|max:255',
             'price' => 'required|numeric',
@@ -57,7 +60,7 @@ class ProductsController extends Controller
     }
     public function destroy(Product $product)
     {
-
+        abort_if(Gate::denies('eliminar:productos'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $product->delete();
 
         return redirect()->route('products.index');
