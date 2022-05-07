@@ -32,12 +32,19 @@ class UsersSeeder extends Seeder
 
         $adminRole->givePermissionTo(Permission::all());
 
-
+        # admin
         $user = new User();
         $user->name ="Admin";
         $user->email = "admin@admin.com";
         $user->password = bcrypt("password");
         $user->save();
         $user->assignRole($adminRole);
+
+        # admin
+        $userClient = new User();
+        $userClient->name ="Client 1";
+        $userClient->email = "client@client.com";
+        $userClient->password = bcrypt("password");
+        $userClient->save();
     }
 }
