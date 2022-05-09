@@ -13,61 +13,57 @@
                             <a href="{{ route('products.index') }}"
                                 class="px-4 py-2 font-bold text-black bg-gray-200 rounded hover:bg-gray-300">{{ __('Back') }}</a>
                         </div>
-                        <form method="post" action="{{ route('products.update',$product->id) }}">
-                            @csrf
-                            @method('PUT')
-                            <div class="mt-8 text-2xl">
-                                <div class="row g-3">
-                                    <div class="col-sm-12">
-                                        <label for="name" class="form-label">{{ __('Name') }}</label>
-                                        <input type="text" class="form-control" id="name" name="name"
-                                            value="{{ old('name') ?? $product->name }}" required>
-                                        <div class="invalid-feedback">
-                                            {{ __('Name is required.') }}
-                                        </div>
+                        <section class="max-w-4xl p-6 mx-auto  rounded-md shadow-md bg-gray-800">
+
+                            <form method="post" action="{{ route('products.update', $product->id) }}">
+                                @csrf
+                                @method('PUT')
+
+                                <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                                    <div>
+                                        <label class=" text-gray-200"
+                                            for="name">{{ __('Name') }}</label>
+                                        <input id="name" name="name" value="{{ old('name') ?? $product->name }}"
+                                            type="numeric"
+                                            class="block w-full px-4 py-2 mt-2   rounded-md bg-gray-800 text-gray-300 border-gray-600  focus:ring-blue-300 focus:ring-opacity-40 focus:border-blue-300 focus:outline-none focus:ring">
                                         @error('name')
                                             <p class="text-sm text-red-600">{{ $message }}</p>
                                         @enderror
                                     </div>
 
-                                    <div class="col-sm-6">
-                                        <label for="price" class="form-label">Price</label>
-                                        <div class="input-group has-validation">
-                                            <span class="input-group-text">$</span>
-                                            <input type="numeric" class="form-control" id="price" name="price"
-                                                value="{{ old('price') ?? $product->price }}" required>
-                                        </div>
-                                        <div class="invalid-feedback">
-                                            {{ __('Price is required.') }}
-                                        </div>
+                                    <div>
+                                        <label class=" text-gray-200"
+                                            for="price">{{ __('Price') }}</label>
+                                        <input id="price" name="price" type="numeric"
+                                            value="{{ old('price') ?? $product->price }}"
+                                            class="block w-full px-4 py-2 mt-2   rounded-md bg-gray-800 text-gray-300 border-gray-600  focus:ring-blue-300 focus:ring-opacity-40 focus:border-blue-300 focus:outline-none focus:ring">
                                         @error('price')
                                             <p class="text-sm text-red-600">{{ $message }}</p>
                                         @enderror
                                     </div>
 
-                                    <div class="col-6">
-                                        <label for="tax" class="form-label">Tax</label>
-                                        <div class="input-group has-validation">
-                                            <span class="input-group-text">%</span>
-                                            <input type="numeric" class="form-control" id="tax" name="tax"
-                                                value="{{ old('tax') ?? $product->tax }}">
-                                            <div class="invalid-feedback">
-                                                Tax is required.
-                                                @error('tax')
-                                                    <p class="text-sm text-red-600">{{ $message }}</p>
-                                                @enderror
-                                            </div>
-                                        </div>
+                                    <div>
+                                        <label class=" text-gray-200"
+                                            for="tax">{{ __('Tax') }}</label>
+                                        <input id="tax" name="tax" type="numeric"
+                                            value="{{ old('tax') ?? $product->tax }}"
+                                            class="block w-full px-4 py-2 mt-2   rounded-md bg-gray-800 text-gray-300 border-gray-600  focus:ring-blue-300 focus:ring-opacity-40 focus:border-blue-300 focus:outline-none focus:ring">
                                         @error('tax')
                                             <p class="text-sm text-red-600">{{ $message }}</p>
                                         @enderror
                                     </div>
-                                    <hr class="my-4">
-                                    <button class="w-100 btn btn-primary btn-lg"
-                                        type="submit">{{ __('Update') }}</button>
+
+
                                 </div>
-                            </div>
-                        </form>
+
+                                <div class="flex justify-end mt-6">
+                                    <button
+                                        class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+                                </div>
+
+
+                            </form>
+                        </section>
 
                     </div>
                 </div>

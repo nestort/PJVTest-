@@ -51,25 +51,25 @@
 
         <table class="w-full overflow-scroll table-fixed">
             <thead>
-                <tr class="text-white bg-indigo-600 rounded-l-lg opacity-90 ">
-                    <th class="px-4 py-2">#</th>
-                    <th class="px-4 py-2">Date</th>
-                    <th class="px-4 py-2">User</th>
-                    <th class="px-4 py-2">SubTotal</th>
-                    <th class="px-4 py-2">Total</th>
-                    <th class="px-4 py-2">{{ __('Details') }}</th>
+                <tr class="bg-indigo-600 text-white ">
+                    <th class="border border-slate-600">#</th>
+                    <th class="border border-slate-600">Date</th>
+                    <th class="border border-slate-600">User</th>
+                    <th class="border border-slate-600">SubTotal</th>
+                    <th class="border border-slate-600">Total</th>
+                    <th class="border border-slate-600">{{ __('Details') }}</th>
 
                 </tr>
             </thead>
             <tbody>
                 @foreach ($invoices as $invoice)
-                    <tr class="rounded-l-lg hover:bg-gray-100">
-                        <td class="px-4 py-2 border">{{ $invoice->id }}</td>
-                        <td class="px-4 py-2 border">{{ $invoice->created_at }}</td>
-                        <td class="px-4 py-2 border">{{ $invoice->user->name }}</td>
-                        <td class="px-4 py-2 border">$ {{ $invoice->sub_total }}</td>
-                        <td class="px-4 py-2 border">$ {{ $invoice->total }}</td>
-                        <td class="px-4 py-2 border"><a href="{{ route('invoices.show',$invoice->id) }}">open</a></td>
+                    <tr class="border-solid border-b bg-gray-100  hover:bg-blue-200">
+                        <td class=" px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ $invoice->id }}</td>
+                        <td class=" px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ $invoice->created_at }}</td>
+                        <td class=" px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ $invoice->user->name }}</td>
+                        <td class=" px-6 py-4 text-sm text-gray-900 whitespace-nowrap">$ {{ $invoice->sub_total }}</td>
+                        <td class=" px-6 py-4 text-sm text-gray-900 whitespace-nowrap">$ {{ $invoice->total }}</td>
+                        <td class=" px-6 py-4 text-sm text-gray-900 whitespace-nowrap"><a href="{{ route('invoices.show',$invoice->id) }}">open</a></td>
 
                     </tr>
                 @endforeach

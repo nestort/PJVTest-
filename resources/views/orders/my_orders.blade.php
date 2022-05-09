@@ -8,30 +8,26 @@
         <div class="block ">
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200 sm:px-20">
-                    <div class="block">
-                        {{-- <a href="{{ route('products.create') }}"
-                            class="px-4 py-2 font-bold text-black bg-gray-200 rounded hover:bg-gray-300">{{ __('New') }}</a> --}}
-                    </div>
                     <div class="mt-8 text-2xl">
                         <div class="flex flex-col">
                             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                                    <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                                <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8 ">
+                                    <div class="overflow-hidden border-2 rounded-lg  border-gray-200  ">
 
-                                        <table class="table table-hover">
+                                        <table class="table-auto w-full border-collapse border ">
                                             <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">{{ __('Product') }}</th>
-                                                    <th scope="col">{{ __('Total') }}</th>
-                                                    <th scope="col">{{ __('Date') }}</th>
+                                                <tr class="bg-indigo-600 text-white">
+                                                    <th class="border border-slate-600" >#</th>
+                                                    <th class="border border-slate-600" >{{ __('Product') }}</th>
+                                                    <th class="border border-slate-600" >{{ __('Total') }}</th>
+                                                    <th class="border border-slate-600" >{{ __('Date') }}</th>
 
 
                                                 </tr>
                                             </thead>
                                             <tbody class="bg-white divide-y divide-gray-200">
                                                 @foreach ($orders as $order)
-                                                    <tr>
+                                                    <tr class="border-solid border-b bg-gray-100  hover:bg-blue-200">
                                                         <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">
                                                             {{ $order->id }}
                                                         </td>
@@ -50,6 +46,7 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
+                                        {{ $orders->links() }}
                                     </div>
                                 </div>
                             </div>

@@ -14,7 +14,7 @@ class ProductsController extends Controller
     public function index()
     {
         abort_if(Gate::denies('ver:productos'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        $products = Product::all();
+        $products = Product::query()->paginate(5);
 
         return view('products.index', compact('products'));
     }

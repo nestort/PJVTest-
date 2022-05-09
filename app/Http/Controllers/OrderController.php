@@ -17,7 +17,7 @@ class OrderController extends Controller
     {
         //abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $my_id = Auth::id();
-        $orders = Order::where('user_id',$my_id)->get();
+        $orders = Order::query()->where('user_id',$my_id)->paginate(5);
         return view('orders.my_orders',compact('orders'));
     }
     public function create()

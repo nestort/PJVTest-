@@ -43,23 +43,23 @@
 
         <table class="w-full overflow-scroll table-fixed">
             <thead>
-                <tr class="text-white bg-indigo-600 rounded-l-lg opacity-90 ">
-                    <th class="px-4 py-2">#</th>
-                    <th class="px-4 py-2">Date of purchase</th>
-                    <th class="px-4 py-2">User</th>
-                    <th class="px-4 py-2">Product</th>
-                    <th class="px-4 py-2">Total</th>
+                <tr class="bg-indigo-600 text-white">
+                    <th class="border border-slate-600">#</th>
+                    <th class="border border-slate-600">Date of purchase</th>
+                    <th class="border border-slate-600">User</th>
+                    <th class="border border-slate-600">Product</th>
+                    <th class="border border-slate-600">Total</th>
 
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="bg-white divide-y divide-gray-200">
                 @foreach ($orders as $orden)
-                    <tr class="rounded-l-lg hover:bg-gray-100">
-                        <td class="px-4 py-2 border">{{ $orden->id }}</td>
-                        <td class="px-4 py-2 border">{{ $orden->created_at }}</td>
-                        <td class="px-4 py-2 border">{{ $orden->user->name }}</td>
-                        <td class="px-4 py-2 border">{{ $orden->product->name }}</td>
-                        <td class="px-4 py-2 border">$ {{ $orden->product->price }}</td>
+                    <tr class="border-solid border-b bg-gray-100  hover:bg-blue-200">
+                        <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ $orden->id }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ $orden->created_at }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ $orden->user->name }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ $orden->product->name }}</td>
+                        <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">$ {{ $orden->product->price }}</td>
 
                     </tr>
                 @endforeach

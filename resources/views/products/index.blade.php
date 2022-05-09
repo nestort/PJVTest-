@@ -18,33 +18,35 @@
                                 <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                                     <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
 
-                                        <table class="table table-hover">
+                                        <table class="table-auto w-full border-collapse border ">
                                             <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">{{ __('Name') }}</th>
-
-                                                    <th scope="col">{{ __('Actions') }}</th>
+                                                <tr class="bg-indigo-600 text-white">
+                                                    <th class="border border-slate-600" scope="col">#</th>
+                                                    <th class="border border-slate-600" scope="col">{{ __('Name') }}
+                                                    </th>
+                                                    <th class="border border-slate-600" scope="col">
+                                                        {{ __('Actions') }}</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="bg-white divide-y divide-gray-200">
-                                                @foreach ($products as $task)
-                                                    <tr>
-                                                        <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">
-                                                            {{ $task->id }}
+                                                @foreach ($products as $product)
+                                                    <tr class="border-solid border-b bg-gray-100  hover:bg-blue-200">
+                                                        <td class="px-6 py-4 text-sm text-gray-900
+                                                            whitespace-nowrap">
+                                                            {{ $product->id }}
                                                         </td>
 
                                                         <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">
-                                                            {{ $task->name }}
+                                                            {{ $product->name }}
                                                         </td>
 
                                                         <td class="px-6 py-4 text-sm font-medium whitespace-nowrap">
-                                                            <a href="{{ route('products.show', $task->id) }}"
+                                                            <a href="{{ route('products.show', $product->id) }}"
                                                                 class="mb-2 mr-2 text-blue-600 hover:text-blue-900">View</a>
-                                                            <a href="{{ route('products.edit', $task->id) }}"
+                                                            <a href="{{ route('products.edit', $product->id) }}"
                                                                 class="mb-2 mr-2 text-indigo-600 hover:text-indigo-900">Edit</a>
                                                             <form class="inline-block"
-                                                                action="{{ route('products.destroy', $task->id) }}"
+                                                                action="{{ route('products.destroy', $product->id) }}"
                                                                 method="POST"
                                                                 onsubmit="return confirm('Are you sure?');">
                                                                 <input type="hidden" name="_method" value="DELETE">
@@ -59,6 +61,7 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
+                                        {{ $products->links() }}
                                     </div>
                                 </div>
                             </div>
